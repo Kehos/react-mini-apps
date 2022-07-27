@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <title>React example: Dice roller</title>
+
+    <!-- React -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- JSX -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <h1>Dice roller</h1>
+    <div id="app"></div>
+
+    <script type="text/babel">
+      const $app = document.getElementById('app');
+
+      // React useState
+      const useState = React.useState;
+
+      const Dice = params => {
+        const [ diceResult, diceUpdate ] = useState(0);
+
+        return (
+          <div>
+            <button onClick={ () => diceUpdate( Math.floor(Math.random() * ( params.faces )) + 1 ) }>Roll!</button>
+            <br />
+            <p>Result: { diceResult > 0 ? diceResult : '' }</p>
+          </div>
+        );
+      };
+
+      ReactDOM.render(
+        <Dice faces={ 20 } />,
+        $app
+      );
+    </script>
+
+  </body>
+</html>
