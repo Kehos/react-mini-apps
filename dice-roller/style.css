@@ -17,8 +17,13 @@ body {
   border-radius: 20px;
 }
 
-input, p {
+label, input, p {
   font-size: 16px;
+}
+
+label {
+  display: block;
+  margin: 0 0 8px 4px;
 }
 
 input {
@@ -46,5 +51,5 @@ button:hover {
 }
 
 p {
-  margin: 16px 0;
+  margin: 16px 0 16px 4px;
 }

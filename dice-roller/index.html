@@ -39,6 +39,7 @@
 
         return (
           <div>
+            <label for="faces">Die faces:</label>
             <input type="text" name="faces" onChange={ facesChange } value={ facesValue } />
             <button onClick={ () => dieUpdate( Math.floor(Math.random() * ( facesValue )) + 1 ) }>Roll</button>
             <br />
