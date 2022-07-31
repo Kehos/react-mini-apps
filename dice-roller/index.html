@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <title>React example: Dice roller</title>
+    <link rel="stylesheet" href="style.css" />
 
     <!-- React -->
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
@@ -23,20 +24,31 @@
       // React useState
       const useState = React.useState;
 
-      const Dice = params => {
-        const [ diceResult, diceUpdate ] = useState(0);
+      const Die = params => {
+        const [ dieResult, dieUpdate ] = useState(0);
+        const [ facesValue, facesUpdate  ] = useState(20);
+
+        // Only apply change if value > 0
+        const facesChange = event => {
+          if (!isNaN(event.target.value) && parseInt(event.target.value, 10) > 0) {
+            facesUpdate(event.target.value);
+          } else {
+            facesUpdate(0);
+          }
+        }
 
         return (
           <div>
-            <button onClick={ () => diceUpdate( Math.floor(Math.random() * ( params.faces )) + 1 ) }>Roll!</button>
+            <input type="text" name="faces" onChange={ facesChange } value={ facesValue } />
+            <button onClick={ () => dieUpdate( Math.floor(Math.random() * ( facesValue )) + 1 ) }>Roll</button>
             <br />
-            <p>Result: { diceResult > 0 ? diceResult : '' }</p>
+            <p>Result: { dieResult > 0 ? dieResult : '' }</p>
           </div>
         );
       };
 
       ReactDOM.render(
-        <Dice faces={ 20 } />,
+        <Die />,
         $app
       );
     </script>
