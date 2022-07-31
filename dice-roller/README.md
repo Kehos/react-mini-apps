@@ -8,4 +8,4 @@ To roll a die, just press the `Roll` button and the result will appear below.
 
 If you want to set the number of faces of the die, edit the value in the input field and then press `Roll` to roll a new die with the specified faces. The number of faces must be greater than zero.
 
-![Die roller](screenshot.png)
+![Die roller](screenshot.PNG)
